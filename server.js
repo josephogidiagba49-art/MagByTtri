@@ -158,7 +158,9 @@ app.get('/api/report', (req, res) => {
   res.send(report);
 });
 
-app.get('/', (req, res) => res.render('index'));
+app.get('/', (req, res) => {
+  res.render('index', { TRIGGA_KEY: process.env.TRIGGA_KEY || '' });
+});
 
 const PORT = process.env.PORT || 3333;
 app.listen(PORT, () => {
